@@ -37,6 +37,7 @@ build() {
 		--use-system-stemmer \
 		--use-system-yaml \
 		--use-system-zlib \
+		CXXFLAGS="$CXXFLAGS -Wno-interference-size" \
 		PREFIX="/usr" \
 		mongo mongod
 }
