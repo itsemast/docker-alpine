@@ -1,0 +1,24 @@
+--- ./src/third_party/gperftools/platform/linux_x86_64/internal/src/config.h.orig
++++ ./src/third_party/gperftools/platform/linux_x86_64/internal/src/config.h
+@@ -151,7 +151,7 @@
+ /* #undef HAVE_STRUCT_MALLINFO */
+ 
+ /* Define to 1 if you have the <sys/cdefs.h> header file. */
+-#define HAVE_SYS_CDEFS_H 1
++/* #undef HAVE_SYS_CDEFS_H */
+ 
+ /* Define to 1 if you have the <sys/prctl.h> header file. */
+ #define HAVE_SYS_PRCTL_H 1
+@@ -199,10 +199,10 @@
+ #define HAVE___ATTRIBUTE__ALIGNED_FN 1
+ 
+ /* Define to 1 if compiler supports __environ */
+-#define HAVE___ENVIRON 1
++/* #undef HAVE___ENVIRON */
+ 
+ /* Define to 1 if you have the `__sbrk' function. */
+-#define HAVE___SBRK 1
++/* #undef HAVE___SBRK */
+ 
+ /* prefix where we look for installed files */
+ #define INSTALL_PREFIX "/data/acm/mongo/src/third_party/gperftools/platform/linux_x86_64/junk"
