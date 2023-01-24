@@ -1,6 +1,6 @@
 # Maintainer: Dima Pulkinen <dima@itsemast.com>
 pkgname=mongodb
-pkgver=4.2.9
+pkgver=6.0.4
 pkgrel=0
 pkgdesc="A high-performance, open source, schema-free document-oriented database"
 url="http://www.mongodb.org"
@@ -44,7 +44,7 @@ package() {
 	install -Dm755 build/opt/mongo/mongod "$pkgdir/usr/bin/mongod"
 }
 
-sha512sums="ce577bb5598619894ef90dd063db51780b4b452c9c9458f247e9188b4f04d6b2f3972900cce4ea977ce656a022d7e7ad964cb3bd67e4e17f6cf08841b6f610ec  mongodb-src-r4.2.9.tar.gz
+sha512sums="4dc1551c5b4c55b3a6f4c84b3521048955dac1715b91bea4b7d18b14cd848fc5b3fc347c34430d28bd037e33f37b40e2d050ec93b50590eb058748de5fdc59c0  mongodb-src-r6.0.4.tar.gz
 4d75d452db6a2e175573cda398dfc0709997b0925a50ab202c806dc6ff795f54c7376bf25f2a455344e80c5bba5439bf3bee0af02c54c81039b1a68acbdffb0a  fix-backtrace.patch
 23f5b74715f41ff0998f07ad207e773b6fb06e375fe558fb812bc009e01367fbfd8a91391e2d1749d3bd4b9dc430ad3cdcd47163aadb6eb100869d3c9ef4a029  fix-default-stacksize.patch
 bb314e320825bc70a77db5a9ae07848fd1cec46edb41e8d94ce1effb0e5e0115636755a484924356c15d60f0e623c4b34197ef759accf9d156bcd2d11dbf5d61  fix-elf-native-class.patch
