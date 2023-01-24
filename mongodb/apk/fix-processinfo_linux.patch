@@ -1,9 +1,9 @@
 --- ./src/mongo/util/processinfo_linux.cpp.orig
 +++ ./src/mongo/util/processinfo_linux.cpp
-@@ -42,13 +42,7 @@
- #include <sys/time.h>
+@@ -44,13 +44,7 @@
  #include <sys/utsname.h>
  #include <unistd.h>
+ 
 -#ifdef __BIONIC__
 -#include <android/api-level.h>
 -#elif __UCLIBC__
@@ -14,7 +14,7 @@
  
  #include <boost/filesystem.hpp>
  #include <boost/none.hpp>
-@@ -608,17 +602,9 @@
+@@ -708,17 +702,9 @@
  
      BSONObjBuilder bExtra;
      bExtra.append("versionString", LinuxSysHelper::readLineFromFile("/proc/version"));
