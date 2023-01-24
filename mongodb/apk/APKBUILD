@@ -26,7 +26,7 @@ builddir="$srcdir"/$pkgname-src-r$pkgver
 
 build() {
 	export SCONSFLAGS="$MAKEFLAGS"
-	scons --prefix=/usr \
+	scons \
 		--allocator=system \
 		--disable-warnings-as-errors \
 		--ssl \
@@ -37,6 +37,7 @@ build() {
 		--use-system-stemmer \
 		--use-system-yaml \
 		--use-system-zlib \
+		PREFIX="/usr" \
 		mongo mongod
 }
 
