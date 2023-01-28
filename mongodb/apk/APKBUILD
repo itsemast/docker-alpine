@@ -37,7 +37,7 @@ build() {
 		--use-system-stemmer \
 		--use-system-yaml \
 		--use-system-zlib \
-		CXXFLAGS="$CXXFLAGS -Wno-interference-size" \
+		CXXFLAGS="$CXXFLAGS -Wno-interference-size -DBOOST_LOG_DYN_LINK" \
 		PREFIX="/usr" \
 		mongo mongod
 }
