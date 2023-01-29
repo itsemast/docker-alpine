@@ -47,7 +47,7 @@ build() {
 		CXXFLAGS="$CXXFLAGS -Wno-interference-size -DBOOST_LOG_DYN_LINK -DFMT_HEADER_ONLY" \
 		CCFLAGS="$CCFLAGS $(pkg-config --cflags libmongoc-1.0)" \
 		PREFIX="/usr" \
-		mongo mongod
+		install-core
 }
 
 package() {
