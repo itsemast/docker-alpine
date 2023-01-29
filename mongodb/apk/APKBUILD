@@ -8,7 +8,7 @@ arch="x86_64"
 options="!check"
 license='SSPL-1.0'
 makedepends="boost-dev curl-dev cyrus-sasl-dev fmt-dev libpcap-dev libstemmer-dev libunwind-dev
-	openssl-dev pcre2-dev py3-cheetah py3-distro py3-gitpython py3-mongo py3-psutil
+	mongo-c-driver-dev openssl-dev pcre2-dev py3-cheetah py3-distro py3-gitpython py3-mongo py3-psutil
 	py3-pydantic py3-setuptools py3-yaml scons snappy-dev yaml-cpp-dev zlib-dev"
 source="http://downloads.mongodb.org/src/mongodb-src-r$pkgver.tar.gz
 	fix-backtrace.patch
@@ -41,7 +41,9 @@ build() {
 		--use-system-yaml \
 		--use-system-zlib \
 		--use-system-zstd \
+		--use-system-mongo-c=on \
 		CXXFLAGS="$CXXFLAGS -Wno-interference-size -DBOOST_LOG_DYN_LINK -DFMT_HEADER_ONLY" \
+		CCFLAGS="$CCFLAGS $(pkg-config --cflags libmongoc-1.0)" \
 		PREFIX="/usr" \
 		mongo mongod
 }
