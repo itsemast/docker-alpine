@@ -9,7 +9,7 @@ options="!check"
 license='SSPL-1.0'
 makedepends="boost-dev curl-dev cyrus-sasl-dev fmt-dev libpcap-dev libstemmer-dev libunwind-dev
 	mongo-c-driver-dev openssl-dev pcre2-dev py3-cheetah py3-distro py3-gitpython py3-mongo py3-psutil
-	py3-pydantic py3-setuptools py3-yaml scons snappy-dev yaml-cpp-dev zlib-dev"
+	py3-pydantic py3-setuptools py3-yaml scons snappy-dev tcmalloc yaml-cpp-dev zlib-dev"
 source="http://downloads.mongodb.org/src/mongodb-src-r$pkgver.tar.gz
 	fix-backtrace.patch
 	fix-default-stacksize.patch
@@ -37,6 +37,7 @@ build() {
 		--use-system-pcre2 \
 		--use-system-snappy \
 		--use-system-stemmer \
+		--use-system-tcmalloc \
 		--use-system-libunwind \
 		--use-system-yaml \
 		--use-system-zlib \
