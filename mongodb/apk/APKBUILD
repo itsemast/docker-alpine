@@ -8,7 +8,8 @@ arch="x86_64"
 options="!check"
 license='SSPL-1.0'
 makedepends="boost-dev curl-dev cyrus-sasl-dev libpcap-dev libstemmer-dev openssl-dev pcre2-dev
-	py3-cheetah py3-psutil py3-setuptools py3-yaml snappy-dev scons yaml-cpp-dev zlib-dev"
+	py3-cheetah py3-distro py3-gitpython py3-mongo py3-psutil py3-pydantic py3-setuptools py3-yaml
+	scons snappy-dev yaml-cpp-dev zlib-dev"
 source="http://downloads.mongodb.org/src/mongodb-src-r$pkgver.tar.gz
 	fix-backtrace.patch
 	fix-default-stacksize.patch
