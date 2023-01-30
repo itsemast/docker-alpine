@@ -51,8 +51,8 @@ build() {
 }
 
 package() {
-	install -Dm755 build/opt/mongo/mongo "$pkgdir/usr/bin/mongo"
-	install -Dm755 build/opt/mongo/mongod "$pkgdir/usr/bin/mongod"
+	install -Dm755 build/install/usr/bin/mongod "$pkgdir/usr/bin/mongod"
+	install -Dm755 build/install/usr/bin/mongos "$pkgdir/usr/bin/mongos"
 }
 
 sha512sums="ee6e2c66da6291073cc64f3031eb34697029da09a71fa0b47282fd8f8a1a7b185834b9b46300ffa31f64aac92a2e094269c6f386a4f344a40c847f58e213988e  mongodb-src-r6.2.0.tar.gz
