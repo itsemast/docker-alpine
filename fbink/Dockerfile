@@ -4,7 +4,7 @@ ENV USER=builder
 
 COPY /apk /home/${USER}/apk
 
-RUN sudo chown -R ${USER}:abuild ~/apk
+RUN doas chown -R ${USER}:abuild ~/apk
 RUN abuild-keygen -naiq && abuild -r
 
 FROM alpine:latest
