@@ -7,7 +7,7 @@ COPY /apk /home/${USER}/apk
 RUN doas chown -R ${USER}:abuild ~/apk
 RUN abuild-keygen -naiq && abuild -r
 
-FROM alpine:latest
+FROM alpine:edge
 
 COPY --from=fbink_apk_builder /home/builder/packages/builder /tmp/repo
 COPY --from=fbink_apk_builder /etc/apk/keys /etc/apk/keys
