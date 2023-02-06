@@ -1,0 +1,51 @@
+# Maintainer: Dima Pulkinen <dima@itsemast.com>
+pkgname=mongosh
+pkgver=1.6.2
+pkgrel=0
+lmcname=libmongocrypt
+lmcver=2.4.0
+odnname=os-dns-native
+odnver=1.2.0
+pkgdesc="The MongoDB Shell"
+url="http://www.mongodb.org"
+arch="x86_64"
+options="!check"
+license="Apache-2.0"
+makedepends="bash cmake krb5-dev linux-headers nodejs npm openssl-dev python3"
+source="$pkgname-$pkgver.tar.gz::https://github.com/mongodb-js/$pkgname/archive/refs/tags/v$pkgver.tar.gz
+	$lmcname-node-v$lmcver.tar.gz::https://github.com/mongodb/$lmcname/archive/refs/tags/node-v$lmcver.tar.gz
+	$odnname-$odnver.tar.gz::https://github.com/mongodb-js/$odnname/archive/refs/tags/v$odnver.tar.gz
+"
+
+builddir="$srcdir"/$pkgname-$pkgver
+lmcnodedir="$srcdir"/$lmcname-node-v$lmcver/bindings/node
+odnnodedir="$srcdir"/$odnname-$odnver
+
+build() {
+	cd "$lmcnodedir"
+	sed -i '/^CMAKE_FLAGS/ s/"$/ -DCMAKE_C_FLAGS=-Wno-error=format-truncation -DBUILD_VERSION='$lmcver'"/' etc/build-static.sh
+	sed -i 's|<(module_root_dir)|'"$lmcnodedir"'|g' binding.gyp
+	bash etc/build-static.sh
+
+	cd "$odnnodedir"
+	sed -i -e 's/res_ninit([^ ]\+)/res_init()/g' -e 's/res_nsearch/res_search/g' -e '/res_search/{n;d}' -e '/res_nclose/d' binding.cc
+	npm i
+	node-gyp rebuild
+
+	cd "$builddir"
+	npm run prebootstrap
+	npm i -D "$lmcnodedir"
+	npm i -D kerberos
+	npm i -D "$odnnodedir"
+	npm run bootstrap
+	SEGMENT_API_KEY="dummy" npm run compile-exec
+	npm run evergreen-release package -- --build-variant=linux-x64
+}
+
+package() {
+	install -Dm755 dist/mongosh "$pkgdir/usr/bin/mongosh"
+}
+
+sha512sums="ca368a84ce59b1b20eb3d78031a015ffa281e443d7eca1d0ba59e5c9b900532d06ee98a467a6df4804935122bc09b10fc912de218b81da086678a772d86a4102  mongosh-1.6.2.tar.gz
+2857de2e865b6e2aa8d5e9dcec14be4d2f09d437b6127b72868c9b852eb4618af10a7614247ea25658cbae621c573549ae66965fac4868656b36704a5b540e09  libmongocrypt-node-v2.4.0.tar.gz
+b2ccc7cc73d26727e9c81751742366e00e0708c503eb932a381f747e243e4b81ae1da23c47691d747f2ad1e391610e53434d8ad1529c1e2225cb5dec8ea5bacb  os-dns-native-1.2.0.tar.gz"
