@@ -1,6 +1,6 @@
 # Maintainer: Dima Pulkinen <dima@itsemast.com>
 pkgname=mongodb
-pkgver=6.2.0
+pkgver=6.2.1
 pkgrel=0
 pkgdesc="A high-performance, open source, schema-free document-oriented database"
 url="http://www.mongodb.org"
@@ -10,7 +10,7 @@ license='SSPL-1.0'
 makedepends="boost-dev curl-dev cyrus-sasl-dev fmt-dev libpcap-dev libstemmer-dev libunwind-dev
 	mongo-c-driver-dev openssl-dev pcre2-dev py3-cheetah py3-distro py3-gitpython py3-mongo py3-psutil
 	py3-pydantic py3-setuptools py3-yaml scons snappy-dev tcmalloc valgrind-dev yaml-cpp-dev zlib-dev"
-source="http://downloads.mongodb.org/src/mongodb-src-r$pkgver.tar.gz
+source="https://downloads.mongodb.org/src/mongodb-src-r$pkgver.tar.gz
 	fix-backtrace.patch
 	fix-default-stacksize.patch
 	fix-elf-native-class.patch
@@ -55,7 +55,7 @@ package() {
 	install -Dm755 build/install/usr/bin/mongos "$pkgdir/usr/bin/mongos"
 }
 
-sha512sums="ee6e2c66da6291073cc64f3031eb34697029da09a71fa0b47282fd8f8a1a7b185834b9b46300ffa31f64aac92a2e094269c6f386a4f344a40c847f58e213988e  mongodb-src-r6.2.0.tar.gz
+sha512sums="45eafb4fb76036b4d983687640940f1c2875823e1be8716f84b654e3d33102b0c15669c64d13f7619be90b4fdc764a0b83ea3b8a4420447974e613c2e701e6e6  mongodb-src-r6.2.1.tar.gz
 7f87dfce0c0a8c28d699998b081a85e84ab745d1529777487b891ba3f6e8de911006a8a67c489c38d568a69b0f7fa1615064e1d44b7571ed7592726b46a98727  fix-backtrace.patch
 23f5b74715f41ff0998f07ad207e773b6fb06e375fe558fb812bc009e01367fbfd8a91391e2d1749d3bd4b9dc430ad3cdcd47163aadb6eb100869d3c9ef4a029  fix-default-stacksize.patch
 bb314e320825bc70a77db5a9ae07848fd1cec46edb41e8d94ce1effb0e5e0115636755a484924356c15d60f0e623c4b34197ef759accf9d156bcd2d11dbf5d61  fix-elf-native-class.patch

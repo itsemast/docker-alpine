@@ -6,7 +6,7 @@ USER root
 
 RUN echo '@testing https://dl-cdn.alpinelinux.org/alpine/edge/testing/' >> /etc/apk/repositories \
     && apk update \
-    && apk add --no-cache py3-mongo@testing tcmalloc@testing
+    && apk add --no-cache tcmalloc@testing
 
 COPY /apk /home/${USER}/apk
 

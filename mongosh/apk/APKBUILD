@@ -1,9 +1,9 @@
 # Maintainer: Dima Pulkinen <dima@itsemast.com>
 pkgname=mongosh
-pkgver=1.6.2
+pkgver=1.10.1
 pkgrel=0
 lmcname=libmongocrypt
-lmcver=2.4.0
+lmcver=2.8.0
 odnname=os-dns-native
 odnver=1.2.0
 pkgdesc="The MongoDB Shell"
@@ -46,6 +46,6 @@ package() {
 	install -Dm755 dist/mongosh "$pkgdir/usr/bin/mongosh"
 }
 
-sha512sums="ca368a84ce59b1b20eb3d78031a015ffa281e443d7eca1d0ba59e5c9b900532d06ee98a467a6df4804935122bc09b10fc912de218b81da086678a772d86a4102  mongosh-1.6.2.tar.gz
-2857de2e865b6e2aa8d5e9dcec14be4d2f09d437b6127b72868c9b852eb4618af10a7614247ea25658cbae621c573549ae66965fac4868656b36704a5b540e09  libmongocrypt-node-v2.4.0.tar.gz
+sha512sums="b40b8d44f8aa9bba9c8b1ba3546412ce62698c5c0e68c7ad0096fc94ceb192800d33f71152b234d92bf38ac6c612e4ee00ef4220ef87e5459fb6b9c9d7e8f7b5  mongosh-1.10.1.tar.gz
+62eece3996811ec77b1571ac2ba32513e62f86d7e8d074046ae27054ac521a478f3871d7697c563dac44ed7fecd133a33325b9ccc3bce48d1675261175386126  libmongocrypt-node-v2.8.0.tar.gz
 b2ccc7cc73d26727e9c81751742366e00e0708c503eb932a381f747e243e4b81ae1da23c47691d747f2ad1e391610e53434d8ad1529c1e2225cb5dec8ea5bacb  os-dns-native-1.2.0.tar.gz"
